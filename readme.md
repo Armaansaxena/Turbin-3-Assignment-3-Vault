@@ -1,18 +1,28 @@
-# Turbin3 Anchor Vault Program
+# Assignment 3 – Anchor Vault (Turbin3 Pre-Builder)
 
-A secure Solana smart contract built with the Anchor framework that establishes a user-specific Vault utilizing Program Derived Addresses (PDAs). This project satisfies **Assignment 1 (Anchor Vault)** for the Turbin3 Builders Cohort.
+This project is part of the Turbin3 Pre-Builder Assignment 1 focused on building a secure, decentralized escrow-like Vault program on Solana using the Anchor framework.
 
-## Overview
+## Tasks Completed
 
-The Anchor Vault program enables a secure decentralized escrow-like mechanism where users can initialize a distinct vault state, deposit native SOL into a secure PDA, and withdraw their funds. The contract utilizes Cross-Program Invocations (CPI) to interface directly with the System Program.
+* Implemented the vault smart contract from scratch using modern Anchor idioms.
+* Created a modular architecture by isolating individual instruction handlers.
+* Derived secure Program Derived Addresses (PDAs) for state management and asset escrowing.
+* Utilized Cross-Program Invocations (CPI) to interface directly with the Solana System Program.
+* Covered all core instructions (`initialize`, `deposit`, `withdraw`, `close`) with robust TypeScript integration tests.
 
-### Core Instructions
-* `initialize`: Sets up the global `VaultState` configuration and derives the secure Vault account PDA.
-* `deposit`: Transports a requested amount of SOL from the user's wallet into the Vault account via CPI.
-* `withdraw`: Safely transfers SOL back from the Vault account to the user's wallet, utilizing the program's PDA signer seeds.
+## Tech Stack
 
----
-## Program Structure
+* Solana
+* Anchor Framework
+* Rust
+* TypeScript
+* @coral-xyz/anchor
+* @solana/web3.js
+
+## Project Structure
+
+```text
+.
 ├── programs/
 │   └── anchor-vault/
 │       ├── Cargo.toml
@@ -25,6 +35,6 @@ The Anchor Vault program enables a secure decentralized escrow-like mechanism wh
 │           ├── lib.rs            # Program entrypoint and routing
 │           └── mod.rs            # Instruction module exports
 ├── tests/
-│   └── vault.t.ts               # TypeScript unit & integration tests
+│   └── vault.t.ts                # TypeScript unit & integration tests
 ├── Anchor.toml                  # Anchor configuration setup
 └── README.md                    # Project documentation
